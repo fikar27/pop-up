@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup Otomatis dengan Gambar</title>
+    <style>
+        /* Gaya CSS untuk overlay popup */
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang dengan transparansi */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Gaya CSS untuk popup */
+        .popup {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        
+        /* Gaya CSS untuk gambar di dalam popup */
+        .popup img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Popup Otomatis dengan Gambar</h1>
+    
+    <div class="overlay" id="overlay" onclick="hidePopup(event)">
+        <div class="popup">
+            <h2>Ini adalah Popup!</h2>
+            <img src="https://hancau.net/wp-content/uploads/2023/02/kartunku-lagi.jpeg" alt="Gambar Popup">
+            <p>Ini adalah isi dari popup.</p>
+            <button onclick="hidePopup(event)">Tutup</button>
+        </div>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            // Menampilkan overlay dan popup secara otomatis setelah halaman dimuat
+            document.getElementById("overlay").style.display = "flex";
+        }
+        
+        function hidePopup(event) {
+            // Memeriksa apakah pengguna mengklik di dalam popup
+            if (event.target.id === "overlay" || event.target.tagName === "BUTTON") {
+                // Menyembunyikan overlay dan popup jika pengguna mengklik di luar area popup atau tombol "Tutup"
+                document.getElementById("overlay").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
